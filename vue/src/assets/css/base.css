@@ -1,0 +1,41 @@
+:root {
+    --text: 14px;
+    --title: 24px;
+    --firstColor: #292D32;
+    --secondColor: #595959;
+}
+
+.wrapper {
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, sans-serif;
+    color: var(--firstColor);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+.btn {
+    padding: 12px 35px 12px 35px;
+    background: var(--firstColor);
+    border-radius: 5px;
+    color: white;
+}
+
+
+
