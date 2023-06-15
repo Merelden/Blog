@@ -3,13 +3,14 @@
 </template>
 
 <script>
+// import modals from '@/components/LoginModal'
 export default {
   data() {
     return {
 
     }
   },
-  components: {},
+  // components: {modals},
   methods: {}
 
 }

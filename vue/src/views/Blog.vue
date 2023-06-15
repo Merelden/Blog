@@ -10,6 +10,11 @@
       </p>
     </div>
   </section>
+  <main class="main">
+    <section class="post-content">
+
+    </section>
+  </main>
   <Footer></Footer>
 </template>
 

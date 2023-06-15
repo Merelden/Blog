@@ -44,6 +44,13 @@
         </div>
       </div>
     </section>
+    <section class="modal">
+      <div class="container">
+<!--        <modals title="Login"-->
+<!--        v-if="modalFirst = !modalFirst" >-->
+<!--        </modals>-->
+      </div>
+    </section>
     <Footer></Footer>
   </div>
 </template>
@@ -51,9 +58,8 @@
 <script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import modals from "@/components/LoginModal"
 export default {
-  components: {Header, Footer, modals}
+  components: {Header, Footer},
 }
 </script>
 
