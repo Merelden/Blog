@@ -7,13 +7,11 @@
           <h1 class="modal-title">
             {{ title }}
           </h1>
-          <span class="button-close" @click="$emit('close')">
-        x
-      </span>
+          <span class="button-close" @click="$emit('close')">x</span>
         </div>
 
         <div class="modal-body">
-          <slot name="body"></slot>
+          <slot name="body"> Default body </slot>
         </div>
       </div>
     </div>
@@ -44,7 +42,10 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener('keydown', this.handleKeyDown);
+  },
+  destroyed() {
+    document.removeEventListener('keydown', this.handleKeyDown)
   },
   computed: {},
   methods: {
@@ -75,7 +76,7 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  transition: opacity .2s ease;
+  transition: opacity .4s ease;
   right: 0;
   z-index: 998;
   background-color: rgba(00, 00, 00, .48);
@@ -91,9 +92,6 @@ export default {
   border-radius: 8px;
   z-index: 999;
   overflow: hidden;
-  @media screen and (min-width: 900px) {
-    min-width: 500px;
-  }
 }
 
 .modal-header {
