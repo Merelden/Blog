@@ -18,7 +18,7 @@
           <h1 class="popular__header-title">
             Popular posts
           </h1>
-          <router-link to="" class="popular__header-btn btn">
+          <router-link to="/blog" class="popular__header-btn btn">
             View all
           </router-link>
         </div>

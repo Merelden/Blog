@@ -38,6 +38,11 @@ export default {
         show: false,
         login: '',
         password: ''
+      },
+      modalRegistration: {
+        show: false,
+        login: '',
+        password: ''
       }
     }
   },
@@ -84,7 +89,7 @@ export default {
 
 .modal-content {
   position: relative;
-  max-width: 600px;
+  min-width: 600px;
   padding: 20px 18px;
   background-color: #fff;
   border: 1px solid #dcdfe6;
@@ -96,7 +101,6 @@ export default {
 
 .modal-header {
   display: flex;
-  align-self: center;
   justify-content: space-between;
   padding-bottom: 20px;
 }
@@ -106,7 +110,9 @@ export default {
 }
 
 .modal-body {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 </style>

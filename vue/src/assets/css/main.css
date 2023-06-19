@@ -7,6 +7,10 @@
     height: 100%;
 }
 
+.btn {
+    border: none;
+}
+
 .hero {
     display: flex;
     justify-content: center;
@@ -54,6 +58,15 @@
     border-bottom: 1px solid #919191;
 }
 
+/* scrollbar */
+
+body::-webkit-scrollbar {
+    width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #292D32;
+}
 
 
 /* BLOG */

@@ -8,7 +8,8 @@
       <router-link to="/">
         <IconLogo></IconLogo>
       </router-link>
-      <button class="header__login btn" @click="modalLogin.show = !modalLogin.show">Login</button>
+      <button class="header__login btn" @click="modalLogin.show = !modalLogin.show">Register</button>
+      <button class="header__login btn" @click="modalRegistration.show = !modalRegistration.show">Sign In</button>
     </div>
   </header>
   <modals
@@ -18,22 +19,26 @@
       :isOpen="modalLogin.show"
   >
       <template v-slot:body>
-        <form>
-          <div class="form-item" :class="{ error: v$.form.email.$errors.length }">
-            <label>Login:</label>
-            <input type="email" placeholder="Enter your name"  v-model="v$.form.email.$model">
-            <div class="input-errors" v-for="(error, index) of v$.form.email.$errors" :key="index">
-              <p class="error-msg">{{ error.$message() }}</p>
-            </div>
+        <form class="form-modal">
+          <div class="form-item">
+            <input type="email" placeholder="Enter your name" class="form-input">
           </div>
-          <div class="form-item" :class="{ error: v$.password.$errors.length }">
-            <label>Password:</label>
-            <input type="password" placeholder="Enter your password" v-model="v$.form.password.$model">
-            <div class="input-errors" v-for="(error, index) of v$.form.password.$errors" :key="index">
-              <p class="error-msg">{{ error.$message() }}</p>
-            </div>
+          <div class="form-item">
+            <input type="password" placeholder="Enter your password" class="form-input">
           </div>
-          <button class="btn" :disabled="v$.form.$invalid">Sign in</button>
+          <button class="btn">Sign in</button>
+        </form>
+      </template>
+  </modals>
+  <modals
+    title="Registration"
+    v-show="modalRegistration.show"
+    @close="modalRegistration.show = false"
+    :isOpen="modalRegistration.show"
+  >
+      <template v-slot:body>
+        <form class="form-modal">
+
         </form>
       </template>
   </modals>
@@ -42,8 +47,6 @@
 <script>
 import IconLogo from "@/components/icons/IconLogo.vue";
 import modals from "@/components/UI/LoginModal.vue";
-import { required, minLength } from '@vuelidate/validators'
-import useVuelidate from '@vuelidate/core'
 
 export default {
   name: "Header",
@@ -53,25 +56,8 @@ export default {
       modalLogin: {
         show: false,
       },
-      form: {
-        email: '',
-        password: ''
-      }
-    }
-  },
-  setup () {
-    return { v$: useVuelidate() }
-  },
-  validations () {
-    return {
-      form: {
-        email: {
-          required, email
-        },
-        password: {
-          required,
-          min: minLength(6)
-        }
+      modalRegistration: {
+        show: false
       }
     }
   }
@@ -101,5 +87,23 @@ export default {
   border: none;
   outline: none;
 }
+
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-input {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #919191;
+  outline: none;
+  cursor: pointer;
+}
+.form-input:hover {
+  border: 2px solid black;
+}
+
 
 </style>
